@@ -4,11 +4,9 @@
 }
 .navbar img{
     height:60px;
-    width:150px;
+    width:200px;
 }
-.navbar-manu{
-    text-align:right;
-}
+
 .topBtn{
     color:black;
 }
@@ -18,4 +16,10 @@
     border-radius: 20px;
     border:1px solid lightgray;
     width:110px;
+}
+.nav-link{
+    padding: 0px;
+}
+.navbar a{
+    margin: 0px 5px;
 }

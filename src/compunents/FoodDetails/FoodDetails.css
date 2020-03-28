@@ -1,0 +1,44 @@
+.food-detail{
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.food-description{
+    text-align: justify;
+    padding: 10px 20px;
+}
+
+.counter{
+    margin: 5px 2px;
+}
+
+.counter-field{
+    color: black;
+    background-color: white;
+    width: 45px;
+    border: none;
+    border-top: 1px solid #dc3545;
+    border-bottom: 1px solid #dc3545;
+    font-size: 22px;
+    text-align: center;
+}
+
+.increaseBtn,.decreaseBtn{
+    color: white;
+    background-color: #dc3545;
+    border: 1px solid #dc3545;
+    font-size: 22px;
+    width: 40px;
+}
+
+.increaseBtn{
+    border-radius: 0px 50% 50% 0px;
+}
+
+.decreaseBtn{
+    border-radius: 50% 0px 0px 50%;
+}
+
+.increaseBtn:focus,.decreaseBtn:focus{
+    outline: none;
+}

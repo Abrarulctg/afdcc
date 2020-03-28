@@ -1,0 +1,19 @@
+.cards{
+    padding-bottom: 20px;
+}
+
+.food-card{
+    border:none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.food-card:hover{
+    box-shadow:2px 2px 10px lightgray;
+}
+
+.card-img{
+    height: 300px;
+    padding:20px;
+}
+
