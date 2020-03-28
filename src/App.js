@@ -1,42 +1,101 @@
-import React from 'react';
+import React,{useState} from 'react';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import { AuthProvider, PrivateRoute } from './Components/UseAuth/UseAuth';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './compunents/Home/Home';
-import Header from './compunents/Header/Header';
-import { AuthContextProvider } from './compunents/useAuth/useAuth';
-import PlaceOrder from './compunents/PlaceOrder/PlaceOrder';
-import SignUp from './compunents/Signup/Signup';
-import CompleteOrder from './compunents/CompleteOrder/CompleteOrder';
-
+import Header from './Components/Header/Header';
+import Foods from './Components/Foods/Foods';
+import Footer from './Components/Footer/Footer';
+import Features from './Components/Features/Features';
+import FoodDetails from './Components/FoodDetails/FoodDetails';
+import SignUp from './Components/SignUp/SignUp';
+import Shipment from './Components/Shipment/Shipment';
+import OrderComplete from './Components/OrderComplete/OrderComplete';
+import NotFound from './Components/NotFound/NotFound';
+import SearchResult from './Components/SearchResult/SearchResult';
+import TopBanner from './Components/TopBanner/TopBanner';
 
 function App() {
-  return (
-    <div className="App">
-      <AuthContextProvider>
-      <Router>
-      <Header></Header>
-        <Switch>
-          <Route path="/home">
-            <Home></Home>
-          </Route>
-          <Route path="/signup">
-            <SignUp></SignUp>
-          </Route>
-          <Route path="/order">
-            <PlaceOrder></PlaceOrder>
-          </Route>
-          <Route path="/completeOrder">
-            <CompleteOrder></CompleteOrder>
-          </Route>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-        </Switch>
-      </Router>
-      </AuthContextProvider>
+    
+    const [cart , setCart] = useState([]);
+    const [deliveryDetails , setDeliveryDetails] = useState({
+      todoor:null,road:null, flat:null, businessname:null, address: null
+    });
+    const deliveryDetailsHandler = (data) => {
+        setDeliveryDetails(data)
+    }
+    const clearCart = () => {
+      setCart([])
+    }
+    const cartHandler = (data) => {
+      const alreadyAdded = cart.find(crt => crt.id == data.id );
+      const newCart = [...cart,data]
+      setCart(newCart);
+      if(alreadyAdded){
+        const reamingCarts = cart.filter(crt => cart.id != data);
+        setCart(reamingCarts);
+      }else{
+        const newCart = [...cart,data]
+        setCart(newCart);
+      }
+     
+    }
 
-    </div>
+    const checkOutItemHandler = (productId, productQuantity) => {
+      const newCart = cart.map(item => {
+        if(item.id == productId){
+            item.quantity = productQuantity;
+        }
+        return item;
+      })
+
+      const filteredCart = newCart.filter(item => item.quantity > 0)
+      setCart(filteredCart)
+    }
+
+  return (
+    <AuthProvider>
+      <Router>
+        <div className="main">
+          <Switch>
+            <Route exact path="/">
+                <Header cart={cart}></Header>
+                <TopBanner></TopBanner>
+                <Foods cart={cart}></Foods>
+                <Features></Features>
+                <Footer></Footer>
+            </Route>
+            <Route path="/food/:id">
+                <Header cart={cart}></Header>
+                <FoodDetails cart={cart} cartHandler={cartHandler}></FoodDetails>
+                <Footer></Footer>
+            </Route>
+            <Route path="/search=:searchQuery">
+                <Header cart={cart}></Header>
+                <TopBanner></TopBanner>
+                <SearchResult></SearchResult>
+                <Features></Features>
+                <Footer></Footer>
+            </Route>
+            <PrivateRoute path="/checkout">
+                <Header cart={cart}></Header>
+                <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler}></Shipment>
+                <Footer></Footer>
+            </PrivateRoute>
+            <PrivateRoute path="/order-complete">
+              <Header cart={cart}></Header>
+              <OrderComplete deliveryDetails={deliveryDetails}></OrderComplete>
+              <Footer></Footer>
+            </PrivateRoute>
+            <Route path="/login">
+                <SignUp></SignUp>
+            </Route>
+            <Route path="*">
+                <NotFound></NotFound>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 
