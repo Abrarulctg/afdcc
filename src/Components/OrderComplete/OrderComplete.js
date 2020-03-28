@@ -33,7 +33,7 @@ const OrderComplete = (props) => {
                             </div>
                         </div>
 
-                        <button className="btn btn-block my-3 button">Contact</button>
+                        <button className="btn btn-block my-3 btn-danger">Contact</button>
 
                     </div>
                 </div>

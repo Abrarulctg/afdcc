@@ -29,13 +29,12 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-bottom d-flex justify-content-between align-items-center">
-                    <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurent </small>
-                    <ul className="list-inline">
-                        <li className="list-inline-item ml-3"><a href="">Privacy Policy.</a></li>
-                        <li className="list-inline-item  ml-3"><a href="">Terms of Use</a></li>
-                        <li className="list-inline-item  ml-3"><a href="">Pricing</a></li>
-                    </ul>
-
+                    <a className="bottom-manu col-md-3" href="/home">Privacy Policy</a>
+                    <a className="bottom-manu col-md-3" href="/home">Terms of Use</a>
+                    <a className="bottom-manu col-md-3" href="/home">Pricing</a>
+                </div>
+                <div className="footer">
+                <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurent </small>
                 </div>
             </div>
         </footer>

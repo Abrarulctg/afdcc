@@ -57,7 +57,7 @@ const Shipment = (props) => {
                 </div>
                 <div className="offset-md-2 col-md-5">
                     <div className="restaurant-info mb-5">
-                        <h4>Form <strong> Kashbon Rastaurent and Kabab</strong></h4>
+                        <h4>From <strong> Kashbon Rastaurent and Kabab</strong></h4>
                         <h5>Arriving in 20-30 min</h5>
                         <h5>Bohoddarhat, Chattogram.</h5>
                     </div>

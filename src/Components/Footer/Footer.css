@@ -6,3 +6,11 @@ footer  a{
     display: block;
     line-height: 2;
 }
+
+.bottom-manu{
+    display:flex;
+    float:right;
+}
+.footer{
+    text-align: center;
+}
