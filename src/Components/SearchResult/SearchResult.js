@@ -24,7 +24,7 @@ const SearchResult = () => {
                 </div>
                 <div className="text-center">
                     <Link to="/">
-                        <button  className="btn btn-danger button">See Our all Foods</button>
+                        <button  className="btn btn-danger button">Go Back to Home</button>
                     </Link>
 
                 </div>

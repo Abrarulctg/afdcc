@@ -1,0 +1,16 @@
+.payment-bg{
+    background-image: url(../../resources//bg/bannerbackground.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height:80vh;
+}
+
+
+.chackout-header{
+    margin-top:100px;
+    margin-bottom:50px;
+}
+.payment-bg{
+    background-color: rgb(248, 175, 147);
+}

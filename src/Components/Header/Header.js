@@ -5,6 +5,7 @@ import Logo from '../../resources/ICON/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { useAuth } from '../UseAuth/UseAuth';
+
 const Header = (props) => {
     const auth = useAuth();
 
@@ -22,7 +23,7 @@ const Header = (props) => {
                     <li className="nav-item">
                         {
                             auth.user ?  
-                             <Link to="/checkout" className="nav-link">{auth.user.displayName}</Link> 
+                             <Link to="/profile" className="nav-link">{auth.user.displayName}</Link> 
                              :
                              <Link to="/login" className="nav-link">Login</Link> 
                         }

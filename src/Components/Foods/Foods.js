@@ -2,16 +2,25 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Foods.css'
 import FoodItem from '../FoodItem/FoodItem';
-import allFoods from '../../resources/foods';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Loading from '../Loading/Loading';
 const Foods = (props) => {
     const [foods, setFoods] = useState([]);
-    const [selectedFoodType, setSelectedFoodType] = useState("Breakfast");
+    const [selectedFoodType, setSelectedFoodType] = useState("Lunch");
+    const [preloaderVisibility, setPreloaderVisibility] = useState("block");
+
     useEffect(() => {
-        setFoods(allFoods);
-    } ,[])
-    const selectedFoods =  foods.filter(food => food.type == selectedFoodType)
+        fetch('http://localhost:4100/foods')
+        .then(res => res.json())
+        .then(data => {
+            setFoods(data);
+            setPreloaderVisibility("none");
+        })
+        .catch(err => console.log(err))
+    } ,[foods.length])
+
+    const selectedFoods =  foods.filter(food => food.type === selectedFoodType)
     
     return (
         <section className="food-area my-5">
@@ -31,8 +40,9 @@ const Foods = (props) => {
                 </nav>
 
                 <div className="row my-5">
+                    <Loading  visibility={preloaderVisibility}/>
                     {
-                        selectedFoods.map(food => <FoodItem key={food.id} food={food}></FoodItem>)
+                        selectedFoods.map(food => <FoodItem key={food.id}  food={food} />)
                     }
                 </div>
                 <div className="text-center">
