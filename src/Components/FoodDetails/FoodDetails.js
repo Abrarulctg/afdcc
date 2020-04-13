@@ -16,7 +16,7 @@ const FoodDetails = (props) => {
     const [preloaderVisibility, setPreloaderVisibility] = useState("block");
 
     useEffect(() => {
-        fetch("http://localhost:4100/food/" + id)
+        fetch("https://hot-onion-restaurent-backend.herokuapp.com/food/" + id)
             .then(res => res.json())
             .then(data => {
                 setCurrentFood(data);

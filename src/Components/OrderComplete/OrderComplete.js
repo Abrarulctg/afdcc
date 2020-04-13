@@ -3,6 +3,7 @@ import MapImg from '../../resources/bg/ordercomplete.png';
 import Rider from '../../resources/Image/rider.png';
 import Helmet from '../../resources/Image/helmet.png';
 import { useEffect } from 'react';
+import './OrderComplete.css';
 
 const OrderComplete = (props) => {
 
@@ -26,8 +27,8 @@ const OrderComplete = (props) => {
                                 {
                                     orderId ?
                                         <div>
-                                            <h6>Your Order Id is:</h6>
-                                            <p>{props.orderId}</p>
+                                            <h6>Your Order Placed Successfully & Order Id is:</h6>
+                                            <p className="order-id">{props.orderId}</p>
                                         </div>
                                         :
                                         <h6>Fetching Order Id...</h6>

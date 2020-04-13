@@ -7,8 +7,8 @@ const Footer = () => {
         <footer className="bg-dark py-3">
             <div className="container">
                 <div className="row footer-top py-5">
-                    <div className="col-md-6 mb-5">
-                        <img src={Logo} alt="Hot Onion White Logo"/>
+                    <div className="col-md-4 mb-5">
+                        <img src={Logo} alt="Hot Onion White Logo" />
                     </div>
                     <div className="col-md-3">
                         <ul className="list-unstyled">
@@ -26,15 +26,17 @@ const Footer = () => {
                             <li><Link to="/nearme">Restaurants near me</Link></li>
                         </ul>
                     </div>
-                </div>
 
-                <div className="footer-bottom d-flex justify-content-between align-items-center">
-                    <a className="bottom-manu col-md-3" href="/home">Privacy Policy</a>
-                    <a className="bottom-manu col-md-3" href="/home">Terms of Use</a>
-                    <a className="bottom-manu col-md-3" href="/home">Pricing</a>
+                    <div className="col-md-2">
+                        <ul className="list-unstyled">
+                            <li><Link to="/privacyPolicy">Privacy Policy</Link></li>
+                            <li><Link to="/terms">Terms of use</Link></li>
+                            <li><Link to="/pricing">Pricing</Link></li>
+                        </ul>
+                    </div>
                 </div>
                 <div className="footer">
-                <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurent </small>
+                    <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurent </small>
                 </div>
             </div>
         </footer>

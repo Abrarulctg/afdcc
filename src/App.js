@@ -38,7 +38,7 @@ function App() {
 
     const orderDetails = {userEmail, orderedItems, deliveryDetails }
 
-    fetch('http://localhost:4100/placeOrder',{
+    fetch('https://hot-onion-restaurent-backend.herokuapp.com/placeOrder',{
       method : "POST",
           headers: {
               "Content-type" : "application/json"

@@ -7,6 +7,10 @@ footer  a{
     line-height: 2;
 }
 
+footer a:hover{
+    text-decoration: none;
+    color:red;
+}
 .bottom-manu{
     display:flex;
     float:right;
