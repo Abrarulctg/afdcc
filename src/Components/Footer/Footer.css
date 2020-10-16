@@ -3,7 +3,6 @@ footer img{
 }
 footer  a{
     color: #ffffff;
-    display: block;
     line-height: 2;
 }
 
@@ -17,4 +16,12 @@ footer a:hover{
 }
 .footer{
     text-align: center;
+}
+
+
+.copyright-link{
+    color: #6c757d;
+}
+.copyright-link:hover{
+    color: red;
 }

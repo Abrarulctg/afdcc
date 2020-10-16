@@ -31,25 +31,25 @@ function App() {
   const getUserEmail = (email) => {
     setUserEmail(email)
   }
-  const clearCart =  () => {
+  const clearCart = () => {
     const orderedItems = cart.map(cartItem => {
-      return {food_id : cartItem.id, foodName: cartItem.name, quantity: cartItem.quantity}
+      return { food_id: cartItem.id, foodName: cartItem.name, quantity: cartItem.quantity }
     })
 
-    const orderDetails = {userEmail, orderedItems, deliveryDetails }
+    const orderDetails = { userEmail, orderedItems, deliveryDetails }
 
-    fetch('https://hot-onion-restaurent-backend.herokuapp.com/placeOrder',{
-      method : "POST",
-          headers: {
-              "Content-type" : "application/json"
-          },
-          body : JSON.stringify(orderDetails)
-      })
+    fetch('https://hot-onion-restaurent-backend.herokuapp.com/placeOrder', {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(orderDetails)
+    })
       .then(res => res.json())
-      .then(data=> setOrderId(data._id))
-      console.log(orderId);
-      setCart([])
-    }
+      .then(data => setOrderId(data._id))
+    console.log(orderId);
+    setCart([])
+  }
 
 
 
@@ -87,7 +87,7 @@ function App() {
         <div className="main">
           <Switch>
             <Route exact path="/">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <TopBanner></TopBanner>
               <Foods cart={cart}></Foods>
               <Features></Features>
@@ -95,13 +95,13 @@ function App() {
             </Route>
 
             <Route path="/food/:id">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <FoodDetails cart={cart} cartHandler={cartHandler}></FoodDetails>
               <Footer></Footer>
             </Route>
 
             <Route path="/search=:searchQuery">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <TopBanner></TopBanner>
               <SearchResult></SearchResult>
               <Features></Features>
@@ -109,13 +109,13 @@ function App() {
             </Route>
 
             <PrivateRoute path="/checkout">
-            <Header cart={cart}></Header>
-                <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler} getUserEmail={getUserEmail}/>
-                <Footer/>
+              <Header cart={cart}></Header>
+              <Shipment deliveryDetails={deliveryDetails} deliveryDetailsHandler={deliveryDetailsHandler} cart={cart} clearCart={clearCart} checkOutItemHandler={checkOutItemHandler} getUserEmail={getUserEmail} />
+              <Footer />
             </PrivateRoute>
 
             <PrivateRoute path="/completeOrder">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <OrderComplete deliveryDetails={deliveryDetails} orderId={orderId}></OrderComplete>
               <Footer></Footer>
             </PrivateRoute>
@@ -125,12 +125,12 @@ function App() {
             </Route>
 
             <Route path="/inventory">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <Inventory></Inventory>
             </Route>
 
             <Route path="*">
-            <Header cart={cart}></Header>
+              <Header cart={cart}></Header>
               <NotFound></NotFound>
             </Route>
 

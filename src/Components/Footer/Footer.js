@@ -23,7 +23,7 @@ const Footer = () => {
                             <li><Link to="/help">Get Help</Link></li>
                             <li><Link to="/faq">Read FAQ</Link></li>
                             <li><Link to="/cities">View All Cities</Link></li>
-                            <li><Link to="/nearme">Restaurants near me</Link></li>
+                            <li><Link to="/nearMe">Restaurants near me</Link></li>
                         </ul>
                     </div>
 
@@ -35,9 +35,13 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
-                <div className="footer">
-                    <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurent </small>
+
+            </div>
+            <div className="footer">
+                <div className="">
+                    <small className="text-secondary">Copyright &copy; 2020 || Red Onion Restaurant || <a className="copyright-link" href="https://www.linkedin.com/in/abrarul-hoque/" target="_blank">Abrarul Hoque</a></small>
                 </div>
+
             </div>
         </footer>
     );
